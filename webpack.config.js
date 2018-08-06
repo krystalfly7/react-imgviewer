@@ -26,6 +26,14 @@ var config = {
         libraryTarget: 'umd'
     },
     plugins: [
+      // new CleanWebpackPlugin(
+      //     ['lib'],
+      //     {
+      //         root: path.join(__dirname),
+      //         verbose:  true,
+      //         dry:      false
+      //     }
+      // ),
       new ExtractTextPlugin({
         filename: '[name].css',
         disable: false,
@@ -58,20 +66,7 @@ var config = {
 };
 
 if(isProd) {
-    config.entry = {
-        "index": ['./src/index.js']
-    }
-    config.output.path = path.join(__dirname, LID_PATH);
-    config.plugins.push(
-      new CleanWebpackPlugin(
-          ['lib'],
-          {
-              root: path.join(__dirname),
-              verbose:  true,
-              dry:      false
-          }
-      )
-    )
+
 } else {
     config.plugins.push(
       new webpack.HotModuleReplacementPlugin(),

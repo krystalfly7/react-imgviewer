@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './app.less';
 import PhotoViewer from '../src/index.js';
+
 let photos =  [
   { url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' },
   { url: 'https://images.unsplash.com/photo-1470777639313-60af88918203?dpr=2&auto=format&crop=faces&fit=crop&w=240&h=159'},
