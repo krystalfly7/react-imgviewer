@@ -16,8 +16,8 @@ npm install component-poi-fe-imgviewer --save
 
 ```javascript
 import React, { Component } from 'react';
-import PhotoViewer from 'component-poi-fe-imgviewer'
-import 'component-poi-fe-imgviewer/lib/index.css';
+import PhotoViewer from '@dp/component-poi-fe-imgviewer'
+import '@dp/component-poi-fe-imgviewer/lib/index.css';
 
 export default class App extends Component {
   constructor() {
