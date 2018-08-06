@@ -1,6 +1,6 @@
 {
   "name": "@dp/component-poi-fe-imgviewer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "app-poi-fe project",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "node devserver.js",
     "build": "webpack --config ./webpack.config.js --hide-modules",
     "gulp": "NODE_ENV=production gulp",
-    "prepublish": "NODE_ENV=production gulp"
+    "prepublish": "gulp"
   },
   "keywords": [
     "react",

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './app.less';
+//for lib test
+// import PhotoViewer from '../lib/index.js';
+// import '../lib/index.css'
+//for src test
 import PhotoViewer from '../src/index.js';
 
 let photos =  [
