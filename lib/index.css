@@ -290,6 +290,9 @@
             transform: scale(1);
   }
 }
+.component-poi-fe-imgviewer {
+  width: 300px;
+}
 .component-poi-fe-imgviewer .viewer-toolbar {
   padding: 0;
   overflow: hidden;
@@ -334,6 +337,10 @@
   overflow: hidden;
   text-align: center;
   border: 1px solid #ccc;
+  height: 400px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .component-poi-fe-imgviewer .current-img .big-img {
   width: 100%;
@@ -388,6 +395,8 @@
   margin-top: -1px;
   border: 1px solid #ccc;
   border-top: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .component-poi-fe-imgviewer .bottom-content .bottom-imglist {
   white-space: nowrap;

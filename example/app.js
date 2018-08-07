@@ -15,12 +15,12 @@ let photos =  [
   { url: 'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&w=1024&h=1024' },
   { url: 'https://images.unsplash.com/photo-1455717974081-0436a066bb96?dpr=2&auto=format&crop=faces&fit=crop&w=240&h=159' }
 ];
-
+//or use class cover height and width
 export default class App extends Component {
   render() {
     return (
       <div className="app-test">
-        <PhotoViewer photos={photos} activeIndex={2} cwidth={500} />
+        <PhotoViewer photos={photos} activeIndex={2} cwidth={300} cheight={500}  />
       </div>
     )
   }

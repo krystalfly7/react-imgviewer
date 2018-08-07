@@ -255,8 +255,8 @@ export default class PhotoViewer extends Component {
     const { photos } = this.props;
     const { activeIndex } = this.state;
     let containerStyle = {
-      width: this.props.cwidth ? `${this.props.cwidth}px` : '300px',
-      height: this.props.cheight ? `${this.props.cheight}px` : '400px',
+      width: this.props.cwidth ? `${this.props.cwidth}px` : '',
+      height: this.props.cheight ? `${this.props.cheight}px` : '',
     };
     let imgStyle = {
       width: this.state.width ? `${this.state.width}px` : '100%',
