@@ -1,5 +1,5 @@
 {
-  "name": "@dp/component-poi-fe-imgviewer",
+  "name": "@dp/poi-imgviewer",
   "version": "0.1.0",
   "description": "app-poi-fe project",
   "main": "lib/index.js",
