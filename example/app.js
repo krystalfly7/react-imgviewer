@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './app.less';
 //for lib test
-// import PhotoViewer from '../lib/index.js';
-// import '../lib/index.css'
+import PhotoViewer from '../lib/index.js';
+import '../lib/index.css'
 //for src test
-import PhotoViewer from '../src/index.js';
+// import PhotoViewer from '../src/index.js';
 
 let photos =  [
   { url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' },
