@@ -1,7 +1,7 @@
-# component-poi-fe-imgviewer
+# @dp/poi-imgviewer
 
 [![NPM version][npm-image]][npm-url]
-> react component-poi-fe-imgviewer.
+> react @dp/poi-imgviewer.
 
 ## Introduction
 
@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-npm install component-poi-fe-imgviewer --save
+npm install @dp/poi-imgviewer --save
 ```
 
 ## Usage
@@ -48,8 +48,8 @@ export default class App extends Component {
 | props       | type         | default | description                 | required |
 |-------------|--------------|---------|-----------------------------|----------|
 | photos  | array  |  -  | image list | true |
-| cwidth  | number  |  300px  | photos parent container width | false |
-| cheight  | number  |  400px  | photos parent container height | false |
+| cwidth  | number  |  300  | photos parent container width | false |
+| cheight  | number  |  400  | photos parent container height | false |
 | activeIndex  | number  |  0 | active image index | false |
 
 ## License
