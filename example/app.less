@@ -1,9 +1,28 @@
 .app-test {
   margin: 20px;
-  .component-poi-fe-imgviewer {
-    width: 500px;
+  display: flex;
+  .component-poi-fe-imgviewer  {
+    /* width: 500px; or use cwith in js */
+    // height: 500px;
   }
-  .component-poi-fe-imgviewer .current-img {
-    height: 500px;
+  .component-poi-fe-imgviewer .bottom-content img {
+    // width: 70px;
+    // height: 70px;
+  }
+  .lables-container{
+    width: 200px;
+    font-size: 14px;
+    letter-spacing: 0;
+    background: #FDFDFD;
+    border: 1px solid #E8E8E8;
+    border-radius: 0 2px 2px 0;
+    &-item {
+      padding: 20px;
+      cursor: pointer;
+    }
+    .active {
+      color: #0F8EE9;
+      background: #F3F4F5;
+    }
   }
 }

@@ -19,9 +19,8 @@ export default class PhotoViewer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.activeIndex || nextProps.activeIndex === 0) {
-      this.handleChangeImg(nextProps.activeIndex);
-    }
+    const activeIndex = this.getActiveIndex(nextProps);
+    this.handleChangeImg(activeIndex);
   }
 
   componentDidMount () {
@@ -29,11 +28,16 @@ export default class PhotoViewer extends Component {
     const [width, height] = this.getImgWidthHeight();
     this.setState({
       width,
-      height
+      height,
+      activeIndex: this.getActiveIndex(this.props)
     });
-    if(this.props.activeIndex) {
-      this.setState({ activeIndex: this.props.activeIndex });
-    }
+  }
+
+  getActiveIndex = (data) => {
+    const photos = data.photos || [];
+    const activeIndex = data.activeIndex || 0;
+    //if exceed photos.length use 0;
+    return activeIndex >= photos.length ? 0 : activeIndex;
   }
 
   componentWillUnmount() {
@@ -252,7 +256,7 @@ export default class PhotoViewer extends Component {
   }
 
   render() {
-    const { photos } = this.props;
+    const photos = this.props.photos || [];
     const { activeIndex } = this.state;
     let containerStyle = {
       width: this.props.cwidth ? `${this.props.cwidth}px` : '',
@@ -263,10 +267,10 @@ export default class PhotoViewer extends Component {
       height: this.state.height ? `${this.state.height}px` : '100%',
       transform: `translateX(${this.state.left ? this.state.left + 'px' : '0px'}) translateY(${this.state.top}px) rotate(${this.state.rotate}deg) scaleX(${this.state.scaleX}) scaleY(${this.state.scaleY})`,
     };
-
+    
     return (
-        <div className="component-poi-fe-imgviewer">
-          <div className="current-img" style={containerStyle} ref={(imgViewer) => {
+        <div className="component-poi-fe-imgviewer" style={containerStyle} >
+          <div className="current-img" ref={(imgViewer) => {
               this.imgViewer = imgViewer}}>
             <ul className="viewer-toolbar">
               {
@@ -276,11 +280,11 @@ export default class PhotoViewer extends Component {
               }
             </ul>
             {
-              activeIndex !== 0 ?
+              activeIndex > 0 ?
               <div onClick={() => this.doAction(3)} className="pre-icon"><i></i></div> : null
             }
             {
-              activeIndex !== photos.length - 1 ?
+              activeIndex < photos.length - 1 ?
               <div onClick={() => this.doAction(4)} className="next-icon"><i></i></div> : null
             }
             {
@@ -288,7 +292,7 @@ export default class PhotoViewer extends Component {
               <img className="big-img" src={ photos[activeIndex || 0].url} style={imgStyle} /> : null
             }
           </div>
-          <div className="bottom-content" style={{ width: containerStyle.width }}>
+          <div className="bottom-content">
             <div className="bottom-imglist">
               {
                 photos && photos.map((item, i) => {

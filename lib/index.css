@@ -292,6 +292,14 @@
 }
 .component-poi-fe-imgviewer {
   width: 300px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .component-poi-fe-imgviewer .viewer-toolbar {
   padding: 0;
@@ -337,8 +345,10 @@
   overflow: hidden;
   text-align: center;
   border: 1px solid #ccc;
-  height: 400px;
   width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -388,7 +398,6 @@
 }
 .component-poi-fe-imgviewer .bottom-content {
   width: 100%;
-  height: 70px;
   background: #333333;
   opacity: 0.9;
   overflow-x: scroll;
@@ -401,6 +410,9 @@
 .component-poi-fe-imgviewer .bottom-content .bottom-imglist {
   white-space: nowrap;
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .component-poi-fe-imgviewer .bottom-content .bottom-imglist-current {
   border: 2px solid #1890FF;
