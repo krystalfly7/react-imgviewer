@@ -1,6 +1,6 @@
 {
   "name": "@dp/poi-imgviewer",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "app-poi-fe project",
   "main": "lib/index.js",
   "scripts": {

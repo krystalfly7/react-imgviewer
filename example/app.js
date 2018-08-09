@@ -34,12 +34,27 @@ export default class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.bindEvent();
+  }
+
   handleChange = (activeLabelIndex) => {
     this.setState({ activeLabelIndex });
   }
 
   handleActiveChange = (activeIndex) => {
-    console.log('activeIndex' + activeIndex)
+    console.log('activeIndex: ' + activeIndex)
+  }
+
+  handleResize = () => {
+    let { cwidth, cheight } = this.state;
+    cwidth = cwidth + 5;
+    cheight = cheight + 5;
+    this.setState({ cwidth, cheight });
+  }
+
+  bindEvent = () => {
+    window.addEventListener('resize', this.handleResize, false);
   }
 
   render() {
@@ -60,6 +75,7 @@ export default class App extends Component {
             })
           }
         </div>
+        <div onClick={this.handleResize} className="test-btn">test cwidthcheight</div>
       </div>
     )
   }

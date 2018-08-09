@@ -20,7 +20,7 @@ export default class PhotoViewer extends Component {
 
   componentWillReceiveProps(nextProps) {
     const activeIndex = this.getActiveIndex(nextProps);
-    this.handleChangeImg(activeIndex);
+    this.handleChangeImg(activeIndex, nextProps);
   }
 
   componentDidMount () {
@@ -149,11 +149,11 @@ export default class PhotoViewer extends Component {
     });
   }
 
-  handleResize = () => {
+  handleResize = (obj) => {
     const [width, height] = this.getImgWidthHeight();
     this.setState({
-      width,
-      height,
+      width: obj && obj.cwidth || width,
+      height: obj && obj.cheight || height,
       left: 0,
       top: 0,
       rotate: 0,
@@ -223,13 +223,13 @@ export default class PhotoViewer extends Component {
     });
   }
 
-  handleChangeImg = (activeIndex) => {
+  handleChangeImg = (activeIndex, obj) => {
     //activeIndex change do onChange
     //if have onChange and current activeIndex don't equal state.activeIndex, do onChange
     this.props.onActiveChange && activeIndex !== this.state.activeIndex && this.props.onActiveChange(activeIndex);
     //change activeIndex and resize image
     this.setState({ activeIndex });
-    this.handleResize();
+    this.handleResize(obj);
   }
 
   doAction = (type) => {
