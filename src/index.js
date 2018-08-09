@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.less';
-import { actionList, ActionType } from './constant.js'
+import { actionList, ActionType, compareArray } from './constant.js'
 
 export default class PhotoViewer extends Component {
   constructor(props) {
@@ -34,10 +34,15 @@ export default class PhotoViewer extends Component {
   }
 
   getActiveIndex = (data) => {
-    const photos = data.photos || [];
-    const activeIndex = data.activeIndex || 0;
+    const nPhotos = data.photos || []; //nextProps
+    const cPhotos = this.props.photos || []; //this.props
+    let activeIndex = data.activeIndex || 0;
+    //if photos has not changed, and don't have props.activeIndex, use current state activeIndex
+    if(!(/^\d+$/.test(data.activeIndex)) && compareArray(nPhotos, cPhotos)) {
+      activeIndex = this.state.activeIndex;
+    }
     //if exceed photos.length use 0;
-    return activeIndex >= photos.length ? 0 : activeIndex;
+    return activeIndex >= nPhotos.length ? 0 : activeIndex;
   }
 
   componentWillUnmount() {
@@ -219,6 +224,10 @@ export default class PhotoViewer extends Component {
   }
 
   handleChangeImg = (activeIndex) => {
+    //activeIndex change do onChange
+    //if have onChange and current activeIndex don't equal state.activeIndex, do onChange
+    this.props.onActiveChange && activeIndex !== this.state.activeIndex && this.props.onActiveChange(activeIndex);
+    //change activeIndex and resize image
     this.setState({ activeIndex });
     this.handleResize();
   }
@@ -267,7 +276,7 @@ export default class PhotoViewer extends Component {
       height: this.state.height ? `${this.state.height}px` : '100%',
       transform: `translateX(${this.state.left ? this.state.left + 'px' : '0px'}) translateY(${this.state.top}px) rotate(${this.state.rotate}deg) scaleX(${this.state.scaleX}) scaleY(${this.state.scaleY})`,
     };
-    
+
     return (
         <div className="component-poi-fe-imgviewer" style={containerStyle} >
           <div className="current-img" ref={(imgViewer) => {

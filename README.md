@@ -51,7 +51,7 @@ export default class App extends Component {
 | cwidth  | number  |  300  | photos parent container width | false |
 | cheight  | number  |  400  | photos parent container height | false |
 | activeIndex  | number  |  0 | active image index | false |
-
+| onActiveChange  | func  |   | callback when active image index change | false |
 ## License
 
 MIT
