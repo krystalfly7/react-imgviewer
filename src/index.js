@@ -224,12 +224,15 @@ export default class PhotoViewer extends Component {
   }
 
   handleChangeImg = (activeIndex, obj) => {
-    //activeIndex change do onChange
-    //if have onChange and current activeIndex don't equal state.activeIndex, do onChange
-    this.props.onActiveChange && activeIndex !== this.state.activeIndex && this.props.onActiveChange(activeIndex);
     //change activeIndex and resize image
     this.setState({ activeIndex });
     this.handleResize(obj);
+  }
+
+  handleChangeImgIndex = (activeIndex) => {
+    this.handleChangeImg(activeIndex);
+    //activeIndex change do onChange
+    this.props.onActiveChange && this.props.onActiveChange(activeIndex);
   }
 
   doAction = (type) => {
@@ -251,10 +254,10 @@ export default class PhotoViewer extends Component {
         this.handleRotate(true);
         break;
       case ActionType.prev:
-        this.handleChangeImg(this.state.activeIndex - 1);
+        this.handleChangeImgIndex(this.state.activeIndex - 1);
         break;
       case ActionType.next:
-        this.handleChangeImg(this.state.activeIndex + 1);
+        this.handleChangeImgIndex(this.state.activeIndex + 1);
         break;
       case ActionType.reset:
         this.handleResize();
@@ -308,7 +311,7 @@ export default class PhotoViewer extends Component {
                   return <img key={item.url}
                   className={(activeIndex || 0 ) === i ? 'bottom-imglist-current' : ''}
                   src={item.url}
-                  onClick={() => this.handleChangeImg(i)} />
+                  onClick={() => this.handleChangeImgIndex(i)} />
                 })
               }
             </div>

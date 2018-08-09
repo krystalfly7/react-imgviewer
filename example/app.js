@@ -48,8 +48,8 @@ export default class App extends Component {
 
   handleResize = () => {
     let { cwidth, cheight } = this.state;
-    cwidth = cwidth + 5;
-    cheight = cheight + 5;
+    cwidth = cwidth <= 700 ? cwidth + 5 : cwidth;
+    cheight = cheight <= 700 ? cheight + 5 : cheight;
     this.setState({ cwidth, cheight });
   }
 
