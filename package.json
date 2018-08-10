@@ -1,7 +1,7 @@
 {
-  "name": "@dp/poi-imgviewer",
-  "version": "0.1.6",
-  "description": "app-poi-fe project",
+  "name": "react-imgviewer",
+  "version": "0.1.0",
+  "description": "react imgviewer project",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,7 +1,7 @@
-# @dp/poi-imgviewer
+# react-imgviewer
 
 [![NPM version][npm-image]][npm-url]
-> react @dp/poi-imgviewer.
+> react react-imgviewer.
 
 ## Introduction
 
@@ -9,15 +9,15 @@
 ## Installation
 
 ```bash
-npm install @dp/poi-imgviewer --save
+npm install react-imgviewer --save
 ```
 
 ## Usage
 
 ```javascript
 import React, { Component } from 'react';
-import PhotoViewer from '@dp/poi-imgviewer'
-import '@dp/poi-imgviewer/lib/index.css';
+import PhotoViewer from 'react-imgviewer'
+import 'react-imgviewer/lib/index.css';
 
 export default class App extends Component {
   constructor() {
